@@ -6,7 +6,8 @@ export const Container = styled.div`
     height:100vh;
     background:rgb(35,37,41);
     @media screen and (max-width: 768px) {
-
+        flex-direction:column;
+        height:fit-content;
     }
 `
 export const Left = styled.div`
@@ -14,6 +15,10 @@ export const Left = styled.div`
     height:100%;
     background:rgb(28,29,31);
     color:#FFF;
+    @media screen and (max-width: 768px) {
+        width:100%;
+        height:200px;
+    }
 `
 export const Right = styled.div`
     width:80%;
@@ -23,6 +28,11 @@ export const Right = styled.div`
     box-sizing:border-box;
     padding:60px 5%;
     display: flex;
+    @media screen and (max-width: 768px) {
+        width:100%;
+        height: 500px;
+        padding:40px 2%;
+    }
 `
 export const Content = styled.div`
     width:100%;
