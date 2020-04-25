@@ -1,38 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from './style';
-import Button from '@material-ui/core/Button';
-import axios from 'axios'
+import { Container, Left, Right, Content, In, InFrame, InBox } from './style';
 
 export default (props) => {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [mobile, setMobile] = useState('')
+    const [num1, setNum1] = useState('')
+    const [num2, setNum2] = useState('')
+    const [num3, setNum3] = useState('')
+    const [num4, setNum4] = useState('')
+    const [border, setBorder] = useState(false)
     return (
         <Container>
-            <div>
-                name:<input onChange={(e) => setName(e.target.value)} />
-            </div>
-            <div>
-                email:<input onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div>
-                mobile:<input onChange={(e) => setMobile(e.target.value)} />
-            </div>
-            <Button
-                variant="contained"
-                color="primary"
-                onClick={() => {
-                    const data = {
-                        name,
-                        email,
-                        mobile
-                    }
-                    axios.post('/register', data).then((res) => {
-                        console.log(res)
-                    })
-                }}>
-                submit
-            </Button>
+            <Left></Left>
+            <Right>
+                <Content>
+                    <InBox>
+                        <InFrame style={{borderColor: border === 1 ? 'rgb(89,189,190)' : rgb(58,60,64)}}>
+                            <In placeholder="1" />
+                        </InFrame>
+                        <InFrame style={{borderColor: border === 2 ? 'rgb(89,189,190)' : rgb(58,60,64)}}>
+                            <In placeholder="2" />
+                        </InFrame>
+                        <InFrame style={{borderColor: border === 3 ? 'rgb(89,189,190)' : rgb(58,60,64)}}>
+                            <In placeholder="3" />
+                        </InFrame>
+                        <InFrame style={{borderColor: border === 4 ? 'rgb(89,189,190)' : rgb(58,60,64)}}>
+                            <In placeholder="4" />
+                        </InFrame>
+                    </InBox>
+                </Content>
+            </Right>
         </Container>
     )
 }
