@@ -22,6 +22,7 @@ export const Right = styled.div`
     color:#FFF;
     box-sizing:border-box;
     padding:60px 5%;
+    display: flex;
 `
 export const Content = styled.div`
     width:100%;
@@ -45,6 +46,7 @@ export const In = styled.input`
     outline: none;
     border-bottom:1px solid #FAFAFA;
     color:rgb(89,189,190);
+    text-align: center;
 `
 export const InFrame = styled.div`
     background:rgb(46,48,53);
@@ -53,6 +55,7 @@ export const InFrame = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:5px 10px 10px 10px;
+    padding:0 15px 10px 15px;
     border-radius:5px;
+    margin:5px;
 `
