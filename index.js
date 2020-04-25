@@ -9,14 +9,24 @@ const next = require('next');
 const app = next({ dev });
 const handle = app.getRequestHandler();
 require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 app.prepare()
     .then(() => {
+        console.log(process.env.EMAIL_USER)
+        console.log(process.env.EMAIL_PASSWORD)
+        const mailTransport = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASSWORD,
+            },
+        });
         server.use(morgan('dev'));
         server.use(bodyParser.urlencoded({ extended: true }));
         server.use(bodyParser.json());
         server.use(express.static(path.join(__dirname, 'public')));
-        routes(server, handle, app); //route next and express
+        routes(server, handle, app, mailTransport);
         const port = process.env.PORT || 3000
         server.listen(port, (err) => {
             if (err) throw err
