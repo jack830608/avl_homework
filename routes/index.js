@@ -6,8 +6,7 @@ module.exports = function (server, handle, app, mailTransport) {
         mailTransport.sendMail(
             {
                 from: 'JackLin <jack830608@gmail.com>',
-                // to: 'AVL <hr@avancevl.com>',
-                to: 'JackLin <jack.lin@vpon.com>',
+                to: 'AVL <hr@avancevl.com>',
                 subject: req.body.subject,
                 html: `<p>${req.body.body}</p>`,
             },
